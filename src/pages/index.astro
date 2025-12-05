@@ -1,16 +1,868 @@
 ---
-
+// src/pages/index.astro
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Work in Progress</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+      :root {
+        --primary: #6366f1;
+        --secondary: #8b5cf6;
+        --dark-bg: #0f172a;
+        --darker-bg: #020617;
+        --card-bg: #1e293b;
+        --text: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --error: #ef4444;
+        --warning: #f59e0b;
+        --success: #10b981;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      .container {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0.5rem;
+      }
+      
+      /* Header - Mobile Responsive */
+      header {
+        text-align: center;
+        width: 100%;
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h1 {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+        padding: 0 0.5rem;
+      }
+      
+      .subtitle {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        padding: 0 0.5rem;
+      }
+      
+      .tagline {
+        color: var(--warning);
+        font-weight: 600;
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        margin-top: 1rem;
+        font-family: 'JetBrains Mono', monospace;
+        padding: 0.75rem 1rem;
+        background: rgba(245, 158, 11, 0.1);
+        border-radius: 8px;
+        display: inline-block;
+        max-width: 90%;
+        text-align: center;
+      }
+      
+      /* Main Content - Mobile First */
+      .main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      
+      @media (min-width: 992px) {
+        .main-content {
+          flex-direction: row;
+          align-items: center;
+          gap: 3rem;
+        }
+      }
+      
+      /* Coder Scene - Mobile Responsive */
+      .coder-scene {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: 300px;
+        margin: 0 auto;
+        touch-action: manipulation;
+      }
+      
+      @media (min-width: 480px) {
+        .coder-scene {
+          height: 350px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .coder-scene {
+          height: 400px;
+        }
+      }
+      
+      .desk {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 120px;
+        background: linear-gradient(to top, #374151, #1f2937);
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
+      }
+      
+      @media (min-width: 480px) {
+        .desk {
+          height: 140px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .desk {
+          height: 160px;
+        }
+      }
+      
+      .monitor {
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        max-width: 280px;
+        height: 140px;
+        background: #111827;
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      @media (min-width: 480px) {
+        .monitor {
+          bottom: 120px;
+          height: 160px;
+          max-width: 300px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .monitor {
+          bottom: 140px;
+          height: 180px;
+          max-width: 320px;
+        }
+      }
+      
+      .screen {
+        width: calc(100% - 12px);
+        height: calc(100% - 12px);
+        background: #0a0e17;
+        border-radius: 4px;
+        margin: 6px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .code-display {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.65rem;
+        padding: 12px;
+        line-height: 1.5;
+        color: var(--success);
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      @media (min-width: 480px) {
+        .code-display {
+          font-size: 0.7rem;
+          padding: 15px;
+        }
+      }
+      
+      .code-line {
+        margin-bottom: 4px;
+        white-space: nowrap;
+      }
+      
+      .code-keyword {
+        color: #ff79c6;
+      }
+      
+      .code-function {
+        color: #50fa7b;
+      }
+      
+      .code-string {
+        color: #f1fa8c;
+      }
+      
+      .code-comment {
+        color: #6272a4;
+      }
+      
+      .cursor {
+        display: inline-block;
+        width: 6px;
+        height: 14px;
+        background-color: var(--success);
+        animation: blink 1s infinite;
+        margin-left: 2px;
+        vertical-align: middle;
+      }
+      
+      @media (min-width: 480px) {
+        .cursor {
+          width: 8px;
+          height: 16px;
+        }
+      }
+      
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+      
+      .monitor-stand {
+        position: absolute;
+        bottom: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 15px;
+        background: #4b5563;
+      }
+      
+      @media (min-width: 480px) {
+        .monitor-stand {
+          bottom: 110px;
+          width: 35px;
+          height: 18px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .monitor-stand {
+          bottom: 130px;
+          width: 40px;
+          height: 20px;
+        }
+      }
+      
+      .keyboard {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        max-width: 220px;
+        height: 15px;
+        background: #374151;
+        border-radius: 4px;
+      }
+      
+      @media (min-width: 480px) {
+        .keyboard {
+          bottom: 70px;
+          max-width: 240px;
+          height: 18px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .keyboard {
+          bottom: 80px;
+          max-width: 260px;
+          height: 20px;
+        }
+      }
+      
+      .coder {
+        position: absolute;
+        bottom: 75px;
+        left: 50%;
+        transform: translateX(-25px);
+        width: 50px;
+        height: 70px;
+      }
+      
+      @media (min-width: 480px) {
+        .coder {
+          bottom: 85px;
+          transform: translateX(-30px);
+          width: 60px;
+          height: 80px;
+        }
+      }
+      
+      .head {
+        position: absolute;
+        top: 0;
+        left: 12px;
+        width: 25px;
+        height: 25px;
+        background: #fbbf24;
+        border-radius: 50%;
+      }
+      
+      @media (min-width: 480px) {
+        .head {
+          left: 15px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      
+      .body {
+        position: absolute;
+        top: 25px;
+        left: 3px;
+        width: 44px;
+        height: 35px;
+        background: var(--primary);
+        border-radius: 8px;
+      }
+      
+      @media (min-width: 480px) {
+        .body {
+          top: 30px;
+          left: 5px;
+          width: 50px;
+          height: 40px;
+        }
+      }
+      
+      .arm {
+        position: absolute;
+        top: 30px;
+        width: 35px;
+        height: 8px;
+        background: #fbbf24;
+        border-radius: 4px;
+        transform-origin: left center;
+      }
+      
+      @media (min-width: 480px) {
+        .arm {
+          top: 35px;
+          width: 40px;
+          height: 10px;
+        }
+      }
+      
+      .arm-left {
+        left: -20px;
+        animation: typeLeft 1s infinite alternate;
+      }
+      
+      .arm-right {
+        right: -20px;
+        animation: typeRight 1.2s infinite alternate;
+      }
+      
+      @keyframes typeLeft {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(-10deg); }
+      }
+      
+      @keyframes typeRight {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(5deg); }
+      }
+      
+      /* Crash effects - Mobile Optimized */
+      .crash-effect {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        pointer-events: none;
+      }
+      
+      .crash-screen {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'JetBrains Mono', monospace;
+        text-align: center;
+        padding: 1rem;
+      }
+      
+      .error-code {
+        font-size: clamp(2rem, 10vw, 4rem);
+        color: var(--error);
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      
+      .error-message {
+        color: var(--text);
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+        line-height: 1.4;
+      }
+      
+      .glitch {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(239, 68, 68, 0.1);
+        opacity: 0;
+      }
+      
+      .crash-notice {
+        margin-top: 1.5rem;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid var(--error);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
+        color: var(--text);
+        font-family: 'JetBrains Mono', monospace;
+        display: none;
+        font-size: clamp(0.85rem, 3vw, 1rem);
+      }
+      
+      .hover-hint {
+        margin-top: 1rem;
+        color: var(--warning);
+        font-weight: 600;
+        text-align: center;
+        animation: pulse 2s infinite;
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        padding: 0 0.5rem;
+      }
+      
+      @keyframes pulse {
+        0% { opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { opacity: 0.6; }
+      }
+      
+      /* Info Panel - Mobile Responsive */
+      .info-panel {
+        width: 100%;
+        max-width: 500px;
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+      
+      @media (min-width: 480px) {
+        .info-panel {
+          padding: 2rem;
+          border-radius: 16px;
+        }
+      }
+      
+      .info-panel h2 {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(1.5rem, 5vw, 1.8rem);
+        margin-bottom: 1.25rem;
+        color: var(--primary);
+      }
+      
+      .info-panel p {
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        font-size: clamp(0.95rem, 3.5vw, 1rem);
+      }
+      
+      .status-list {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+      
+      .status-list li {
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        font-size: clamp(0.9rem, 3vw, 1rem);
+      }
+      
+      .status-icon {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+      
+      @media (min-width: 480px) {
+        .status-icon {
+          width: 12px;
+          height: 12px;
+        }
+      }
+      
+      .in-progress {
+        background-color: var(--warning);
+        animation: pulse 1.5s infinite;
+      }
+      
+      .pending {
+        background-color: var(--text-secondary);
+      }
+      
+      .completed {
+        background-color: var(--success);
+      }
+      
+      .progress-container {
+        margin-top: 1.5rem;
+      }
+      
+      .progress-container p {
+        margin-bottom: 0.5rem;
+        font-size: clamp(0.95rem, 3.5vw, 1rem);
+      }
+      
+      .progress-bar {
+        height: 8px;
+        background: #374151;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 4px;
+        width: 65%;
+        animation: progressShimmer 3s infinite;
+        background-size: 200% 100%;
+      }
+      
+      @keyframes progressShimmer {
+        0% { background-position: -200px 0; }
+        100% { background-position: 200px 0; }
+      }
+      
+      /* Footer - Mobile Responsive */
+      footer {
+        margin-top: 2rem;
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        padding-top: 1.5rem;
+        border-top: 1px solid #374151;
+        width: 100%;
+        max-width: 800px;
+        padding: 1.5rem 0.5rem 0.5rem;
+      }
+      
+      /* Mobile-specific improvements */
+      @media (max-width: 479px) {
+        .container {
+          gap: 1.5rem;
+        }
+        
+        .main-content {
+          gap: 2rem;
+        }
+        
+        .info-panel {
+          padding: 1.25rem;
+        }
+      }
+      
+      /* Prevent text selection on interactive elements */
+      .coder-scene, .hover-hint {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      
+      /* Improve touch targets */
+      .tagline, .crash-notice {
+        touch-action: manipulation;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="container">
+      <header>
+        <h1>Work in Progress</h1>
+        <p class="subtitle">I am working hard to bring you an amazing experience. I am coding, designing, and testing to make sure everything is perfect.</p>
+        <p class="tagline">✨ Tap on the coder to see what happens when you interrupt a developer! ✨</p>
+      </header>
+      
+      <div class="main-content">
+        <div class="coder-scene" id="coderScene">
+          <div class="desk"></div>
+          <div class="monitor" id="monitor">
+            <div class="screen">
+              <div class="code-display" id="codeDisplay">
+                <!-- Code will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+          <div class="monitor-stand"></div>
+          <div class="keyboard"></div>
+          <div class="coder">
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+          </div>
+          
+          <!-- Crash effect (hidden by default) -->
+          <div class="crash-effect" id="crashEffect">
+            <div class="crash-screen">
+              <div class="error-code">ERROR 0xCODE_CRASH</div>
+              <div class="error-message">SYSTEM FAILURE: Developer interrupted during critical coding session</div>
+            </div>
+            <div class="glitch" id="glitch"></div>
+          </div>
+        </div>
+        
+        <div class="info-panel">
+          <h2>What I'm Building</h2>
+          <p>I'm creating something truly special that will revolutionize how you interact with digital content. I am working around the clock to deliver the best possible experience.</p>
+          
+          <ul class="status-list">
+            <li><span class="status-icon in-progress"></span>Frontend Development</li>
+            <li><span class="status-icon in-progress"></span>Backend Architecture</li>
+            <li><span class="status-icon completed"></span>UI/UX Design</li>
+            <li><span class="status-icon pending"></span>Testing & QA</li>
+            <li><span class="status-icon pending"></span>Launch Preparation</li>
+          </ul>
+          
+          <div class="progress-container">
+            <p>Overall Progress: <strong>65%</strong></p>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="crash-notice" id="crashNotice">
+        <p>You crashed the coder's PC! Don't worry, it's just a simulation. In reality, our developers have auto-save enabled 😉</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Tap anywhere to reset</p>
+      </div>
+      
+      <div class="hover-hint" id="hoverHint">👆 Tap or hover over the coder to see the crash effect!</div>
+      
+      <footer>
+        <p>© 2023 Syed Vilayat Ali Rizvi. • Currently under active development • Estimated launch: Q4 2023</p>
+      </footer>
+    </div>
+    
+    <script>
+      // Generate random code lines
+      const codeLines = [
+        '<span class="code-keyword">function</span> <span class="code-function">initializeApp</span>() {',
+        '  <span class="code-keyword">const</span> <span class="code-variable">config</span> = {',
+        '    <span class="code-property">apiUrl</span>: <span class="code-string">"https://api.example.com"</span>,',
+        '    <span class="code-property">timeout</span>: <span class="code-number">5000</span>',
+        '  };',
+        '  <span class="code-comment">// Initialize services</span>',
+        '  <span class="code-function">loadServices</span>(config);',
+        '  <span class="code-function">setupListeners</span>();',
+        '  <span class="code-keyword">return</span> <span class="code-keyword">new</span> <span class="code-class">Promise</span>((resolve) => {',
+        '    <span class="code-function">setTimeout</span>(() => {',
+        '      <span class="code-function">resolve</span>(<span class="code-string">"App initialized"</span>);',
+        '    }, <span class="code-number">1000</span>);',
+        '  });',
+        '}',
+        '',
+        '<span class="code-keyword">async</span> <span class="code-keyword">function</span> <span class="code-function">main</span>() {',
+        '  <span class="code-keyword">try</span> {',
+        '    <span class="code-keyword">const</span> <span class="code-variable">result</span> = <span class="code-keyword">await</span> <span class="code-function">initializeApp</span>();',
+        '    <span class="code-function">console</span>.log(result);',
+        '  } <span class="code-keyword">catch</span> (<span class="code-variable">error</span>) {',
+        '    <span class="code-function">console</span>.error(error);',
+        '  }',
+        '}',
+        '',
+        '<span class="code-comment">// Start the application</span>',
+        '<span class="code-function">main</span>();'
+      ];
+      
+      // Populate the code display
+      const codeDisplay = document.getElementById('codeDisplay');
+      codeLines.forEach(line => {
+        const codeLine = document.createElement('div');
+        codeLine.className = 'code-line';
+        codeLine.innerHTML = line;
+        codeDisplay.appendChild(codeLine);
+      });
+      
+      // Add blinking cursor
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      codeDisplay.appendChild(cursor);
+      
+      // Crash effect variables
+      const coderScene = document.getElementById('coderScene');
+      const monitor = document.getElementById('monitor');
+      const crashEffect = document.getElementById('crashEffect');
+      const glitch = document.getElementById('glitch');
+      const crashNotice = document.getElementById('crashNotice');
+      const hoverHint = document.getElementById('hoverHint');
+      
+      let isCrashed = false;
+      let crashTimeout;
+      
+      // Function to trigger crash effect
+      function triggerCrash() {
+        if (isCrashed) return;
+        
+        isCrashed = true;
+        
+        // Show crash effect
+        crashEffect.style.display = 'block';
+        crashNotice.style.display = 'block';
+        hoverHint.style.display = 'none';
+        
+        // Add glitch effect
+        let glitchCount = 0;
+        const glitchInterval = setInterval(() => {
+          glitch.style.opacity = Math.random() > 0.5 ? '0.3' : '0';
+          glitch.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+          
+          glitchCount++;
+          if (glitchCount > 15) {
+            clearInterval(glitchInterval);
+            glitch.style.opacity = '0';
+            glitch.style.transform = 'translate(0, 0)';
+          }
+        }, 100);
+        
+        // Shake monitor
+        monitor.style.transform = 'translateX(-50%) rotate(2deg)';
+        setTimeout(() => {
+          monitor.style.transform = 'translateX(-50%) rotate(-2deg)';
+        }, 100);
+        setTimeout(() => {
+          monitor.style.transform = 'translateX(-50%) rotate(0deg)';
+        }, 200);
+        
+        // Fire confetti on crash (only on larger screens)
+        if (window.innerWidth > 480) {
+          setTimeout(() => {
+            confetti({
+              particleCount: 80,
+              spread: 60,
+              origin: { y: 0.6 },
+              colors: ['#ef4444', '#f59e0b', '#6366f1']
+            });
+          }, 500);
+        }
+        
+        // Auto-recover after 3 seconds
+        crashTimeout = setTimeout(resetCrash, 3000);
+      }
+      
+      // Function to reset crash effect
+      function resetCrash() {
+        isCrashed = false;
+        crashEffect.style.display = 'none';
+        crashNotice.style.display = 'none';
+        hoverHint.style.display = 'block';
+        monitor.style.transform = 'translateX(-50%)';
+      }
+      
+      // Event listeners for hover and touch
+      coderScene.addEventListener('mouseenter', triggerCrash);
+      coderScene.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        triggerCrash();
+      }, { passive: false });
+      
+      // Allow manual reset by clicking/tapping anywhere
+      document.addEventListener('click', function() {
+        if (isCrashed) {
+          clearTimeout(crashTimeout);
+          resetCrash();
+        }
+      });
+      
+      document.addEventListener('touchend', function(e) {
+        if (isCrashed && e.target !== coderScene) {
+          clearTimeout(crashTimeout);
+          resetCrash();
+        }
+      });
+      
+      // Auto-scroll code display
+      let scrollPosition = 0;
+      setInterval(() => {
+        if (!isCrashed) {
+          scrollPosition += 0.5;
+          if (scrollPosition > codeDisplay.scrollHeight - codeDisplay.clientHeight) {
+            scrollPosition = 0;
+          }
+          codeDisplay.scrollTop = scrollPosition;
+        }
+      }, 100);
+      
+      // Update hint text for mobile
+      function updateHintForMobile() {
+        if (window.innerWidth < 768) {
+          hoverHint.textContent = '👆 Tap the coder to see the crash effect!';
+        } else {
+          hoverHint.textContent = '👆 Tap or hover over the coder to see the crash effect!';
+        }
+      }
+      
+      // Update on load and resize
+      window.addEventListener('load', updateHintForMobile);
+      window.addEventListener('resize', updateHintForMobile);
+    </script>
+  </body>
 </html>

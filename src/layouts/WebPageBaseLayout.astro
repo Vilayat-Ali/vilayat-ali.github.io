@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+
+// SEO Props with defaults
+const {
+  title = "Syed Vilayat Ali Rizvi - Senior Software & ML Engineer",
+  description = "Portfolio of Syed Vilayat Ali Rizvi, a Senior Software Engineer specializing in Machine Learning, Full-Stack Development, and AI Solutions. Explore projects, skills, and professional experience.",
+  image = "https://vilayat-ali.github.io/og-image.jpg",
+  url = "https://vilayat-ali.github.io",
+  type = "website",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Syed Vilayat Ali Rizvi" />
+    <meta
+      name="keywords"
+      content="Syed Vilayat Ali Rizvi, Software Engineer, Machine Learning Engineer, ML Engineer, Full Stack Developer, AI Developer, Portfolio, GitHub"
+    />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="Syed Vilayat Ali Rizvi" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body class="bg-black text-gray-100 antialiased">
+    <Navbar />
+    <div class="mt-5 md:mt-8">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

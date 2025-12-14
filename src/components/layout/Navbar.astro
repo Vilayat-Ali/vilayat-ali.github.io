@@ -1,0 +1,245 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800"
+>
+  <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo / Name -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div
+          class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform duration-200"
+        >
+          M
+        </div>
+        <span class="text-xl font-semibold hidden sm:block">Your Name</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a
+          href="#work"
+          class="text-gray-300 hover:text-white transition-colors duration-200"
+          >Work</a
+        >
+
+        <!-- Dropdown for Research -->
+        <div class="relative dropdown">
+          <button
+            class="text-gray-300 hover:text-white transition-colors duration-200 flex items-center space-x-1"
+          >
+            <span>Research</span>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-lg shadow-xl"
+          >
+            <a
+              href="#publications"
+              class="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200 rounded-t-lg"
+              >Publications</a
+            >
+            <a
+              href="#projects"
+              class="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
+              >Projects</a
+            >
+            <a
+              href="#experiments"
+              class="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200 rounded-b-lg"
+              >Experiments</a
+            >
+          </div>
+        </div>
+
+        <a
+          href="#blog"
+          class="text-gray-300 hover:text-white transition-colors duration-200"
+          >Blog</a
+        >
+        <a
+          href="#about"
+          class="text-gray-300 hover:text-white transition-colors duration-200"
+          >About</a
+        >
+
+        <!-- Status Indicator -->
+        <div class="text-green-400 text-xs font-mono pulse-dot hidden lg:block">
+          available
+        </div>
+
+        <!-- CTA Button -->
+        <a
+          href="#contact"
+          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 text-sm font-medium"
+        >
+          Get in touch
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobileMenuBtn"
+        class="md:hidden text-gray-300 hover:text-white transition-colors duration-200"
+      >
+        <svg
+          id="menuIcon"
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg
+          id="closeIcon"
+          class="w-6 h-6 hidden"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden">
+      <div class="py-4 space-y-1 border-t border-gray-800 mt-4">
+        <a
+          href="#work"
+          class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
+          >Work</a
+        >
+
+        <!-- Mobile Research Dropdown -->
+        <div>
+          <button
+            id="mobileResearchBtn"
+            class="w-full flex items-center justify-between px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
+          >
+            <span>Research</span>
+            <svg
+              id="researchChevron"
+              class="w-4 h-4 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="mobileResearchDropdown"
+            class="max-h-0 overflow-hidden transition-all duration-200"
+          >
+            <a
+              href="#publications"
+              class="block px-8 py-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
+              >Publications</a
+            >
+            <a
+              href="#projects"
+              class="block px-8 py-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
+              >Projects</a
+            >
+            <a
+              href="#experiments"
+              class="block px-8 py-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
+              >Experiments</a
+            >
+          </div>
+        </div>
+
+        <a
+          href="#blog"
+          class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
+          >Blog</a
+        >
+        <a
+          href="#about"
+          class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
+          >About</a
+        >
+
+        <div class="px-4 py-3">
+          <div class="text-green-400 text-xs font-mono pulse-dot mb-4">
+            available
+          </div>
+          <a
+            href="#contact"
+            class="block text-center px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 text-sm font-medium"
+          >
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuIcon = document.getElementById("menuIcon");
+  const closeIcon = document.getElementById("closeIcon");
+
+  mobileMenuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+    menuIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+  });
+
+  // Mobile research dropdown
+  const mobileResearchBtn = document.getElementById("mobileResearchBtn");
+  const mobileResearchDropdown = document.getElementById(
+    "mobileResearchDropdown"
+  );
+  const researchChevron = document.getElementById("researchChevron");
+
+  mobileResearchBtn.addEventListener("click", () => {
+    const isOpen =
+      mobileResearchDropdown.style.maxHeight &&
+      mobileResearchDropdown.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      mobileResearchDropdown.style.maxHeight = "0px";
+      researchChevron.style.transform = "rotate(0deg)";
+    } else {
+      mobileResearchDropdown.style.maxHeight =
+        mobileResearchDropdown.scrollHeight + "px";
+      researchChevron.style.transform = "rotate(180deg)";
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  document.querySelectorAll("#mobileMenu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      menuIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
+    });
+  });
+</script>

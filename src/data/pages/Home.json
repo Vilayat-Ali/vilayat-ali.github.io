@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "tagline": "shipping systems, researching ideas, writing futures",
+    "title": "Architecting the systems of tomorrow,",
+    "titleHighlight": "today",
+    "description": "Senior Software & ML Engineer crafting scalable systems, AI agents, and resilient infrastructure. Where research meets real-world impact."
+  },
+  
+  "workAreas": [
+    {
+      "id": "software",
+      "emoji": "⚙️",
+      "title": "Software Engineering",
+      "description": "Building robust, scalable systems. Backend services, distributed architectures, and clean code that doesn't make future-me cry.",
+      "color": "blue"
+    },
+    {
+      "id": "ml",
+      "emoji": "🧠",
+      "title": "ML Engineering",
+      "description": "From notebooks to production pipelines. Training models, optimizing inference, and making sure they actually work at scale.",
+      "color": "purple"
+    },
+    {
+      "id": "research",
+      "emoji": "🔬",
+      "title": "Research & Experimentation",
+      "description": "Exploring new ideas, running experiments, and occasionally stumbling onto something that works. Some become papers, some become products.",
+      "color": "green"
+    },
+    {
+      "id": "infrastructure",
+      "emoji": "🛠️",
+      "title": "Infrastructure & DevOps",
+      "description": "CI/CD, monitoring, deployment pipelines. Because \"it works on my machine\" isn't a deployment strategy.",
+      "color": "yellow"
+    }
+  ],
+  
+  "interests": [
+    {
+      "id": "ml-ai",
+      "title": "Machine Learning & AI",
+      "description": "LLMs, transformers, computer vision, reinforcement learning. Currently exploring efficient fine-tuning and model optimization techniques.",
+      "color": "blue"
+    },
+    {
+      "id": "distributed",
+      "title": "Distributed Systems",
+      "description": "Consensus algorithms, fault tolerance, and the art of making things work when servers inevitably fail.",
+      "color": "purple"
+    },
+    {
+      "id": "applied-research",
+      "title": "Applied Research",
+      "description": "Bridging the gap between papers and production. Reading arxiv, implementing ideas, and figuring out what actually works in practice.",
+      "color": "green"
+    }
+  ],
+  
+  "techStack": {
+    "languages": [
+      { "name": "Rust", "icon": "🦀", "url": "https://www.rust-lang.org/", "color": "orange" },
+      { "name": "Go", "icon": "🔷", "url": "https://go.dev/", "color": "cyan" },
+      { "name": "Java", "icon": "☕", "url": "https://www.java.com/", "color": "red" },
+      { "name": "Python", "icon": "🐍", "url": "https://www.python.org/", "color": "blue" },
+      { "name": "C", "icon": "©", "url": "https://en.cppreference.com/", "color": "purple" },
+      { "name": "JavaScript", "icon": "📜", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript", "color": "yellow" },
+      { "name": "TypeScript", "icon": "📘", "url": "https://www.typescriptlang.org/", "color": "blue" }
+    ],
+    "runtimes": [
+      { "name": "Node.js", "icon": "⬢", "url": "https://nodejs.org/", "color": "green" },
+      { "name": "Deno", "icon": "🦕", "url": "https://deno.com/", "color": "slate" },
+      { "name": "Bun", "icon": "🥟", "url": "https://bun.sh/", "color": "amber" }
+    ],
+    "backendFrameworks": [
+      { "name": "FastAPI", "icon": "⚡", "url": "https://fastapi.tiangolo.com/", "color": "teal" },
+      { "name": "Flask", "icon": "🧪", "url": "https://flask.palletsprojects.com/", "color": "gray" },
+      { "name": "Nest.js", "icon": "🐱", "url": "https://nestjs.com/", "color": "red" },
+      { "name": "Axum", "icon": "🔧", "url": "https://github.com/tokio-rs/axum", "color": "orange" },
+      { "name": "Actix-web", "icon": "🎯", "url": "https://actix.rs/", "color": "orange" },
+      { "name": "Gin", "icon": "🍸", "url": "https://gin-gonic.com/", "color": "cyan" },
+      { "name": "Spring Boot", "icon": "🍃", "url": "https://spring.io/projects/spring-boot", "color": "green" },
+      { "name": "Express", "icon": "🚂", "url": "https://expressjs.com/", "color": "gray" },
+      { "name": "Fastify", "icon": "⚙️", "url": "https://fastify.dev/", "color": "slate" },
+      { "name": "Hono", "icon": "🔥", "url": "https://hono.dev/", "color": "orange" }
+    ],
+    "frontendFrameworks": [
+      { "name": "React", "icon": "⚛️", "url": "https://react.dev/", "color": "cyan" },
+      { "name": "Next.js", "icon": "▲", "url": "https://nextjs.org/", "color": "slate" },
+      { "name": "Svelte", "icon": "🔶", "url": "https://svelte.dev/", "color": "orange" },
+      { "name": "SvelteKit", "icon": "🧰", "url": "https://kit.svelte.dev/", "color": "orange" },
+      { "name": "Vue.js", "icon": "💚", "url": "https://vuejs.org/", "color": "green" },
+      { "name": "Angular", "icon": "🅰️", "url": "https://angular.io/", "color": "red" }
+    ],
+    "machineLearning": [
+      { "name": "CPython", "icon": "🐍", "url": "https://www.python.org/", "color": "blue" },
+      { "name": "Jupyter Lab", "icon": "📓", "url": "https://jupyter.org/", "color": "orange" },
+      { "name": "Apache Spark", "icon": "⚡", "url": "https://spark.apache.org/", "color": "orange" },
+      { "name": "PyTorch", "icon": "🔥", "url": "https://pytorch.org/", "color": "red" },
+      { "name": "TensorFlow", "icon": "🧠", "url": "https://www.tensorflow.org/", "color": "orange" },
+      { "name": "Transformers", "icon": "🤗", "url": "https://huggingface.co/docs/transformers/", "color": "yellow" },
+      { "name": "Scikit-learn", "icon": "📊", "url": "https://scikit-learn.org/", "color": "blue" },
+      { "name": "Pandas", "icon": "🐼", "url": "https://pandas.pydata.org/", "color": "purple" },
+      { "name": "NumPy", "icon": "🔢", "url": "https://numpy.org/", "color": "blue" },
+      { "name": "LangChain", "icon": "🦜", "url": "https://www.langchain.com/", "color": "green" },
+      { "name": "LlamaIndex", "icon": "🦙", "url": "https://www.llamaindex.ai/", "color": "purple" }
+    ]
+  },
+  
+  "cta": {
+    "title": "Let's collaborate",
+    "description": "Working on something interesting? Need help with system design, ML infrastructure, or research implementation? Always happy to chat about ideas, code, or the latest papers.",
+    "buttons": [
+      {
+        "text": "Get in touch",
+        "url": "mailto:vilayatcodemysite@gmail.com",
+        "variant": "primary"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/vilayat-ali",
+        "variant": "secondary",
+        "target": "_blank"
+      },
+      {
+        "text": "Publications",
+        "url": "https://scholar.google.com/citations?hl=en&user=5z1By7oAAAAJ",
+        "variant": "secondary",
+        "target": "_blank"
+      }
+    ]
+  }
+}

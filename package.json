@@ -10,9 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.17",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.6.0",
+    "@lucide/astro": "^0.561.0",
+    "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.3",
     "framer-motion": "^12.23.25",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.18"
   }
 }

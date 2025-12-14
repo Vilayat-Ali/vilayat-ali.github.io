@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "id": "eezy-lang",
+      "title": "Eezy-lang",
+      "description": "A toy programming language written in Rust that targets JVM runtime. Features include custom syntax, lexer, parser, and bytecode generation for seamless Java interoperability.",
+      "tags": ["Rust", "JVM", "Compiler", "Programming Languages"],
+      "githubUrl": "https://github.com/vilayat-ali/eezy-lang",
+      "featured": true
+    },
+    {
+      "id": "datum-orm",
+      "title": "Datum ORM",
+      "description": "A fully-managed ORM for Golang that feels like a breeze. Handles migrations, schema management, and query building for SQL databases with an intuitive API.",
+      "tags": ["Go", "SQL", "ORM", "Database"],
+      "githubUrl": "https://github.com/vilayat-ali/datum-orm",
+      "featured": true
+    }
+  ]
+}

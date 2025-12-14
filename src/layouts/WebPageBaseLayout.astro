@@ -3,14 +3,24 @@ import "../styles/global.css";
 import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
 
-// SEO Props with defaults
+// Define the interface for props
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
+}
+
+// Destructure with proper defaults
+const props = Astro.props;
 const {
   title = "Syed Vilayat Ali Rizvi - Senior Software & ML Engineer",
   description = "Portfolio of Syed Vilayat Ali Rizvi, a Senior Software Engineer specializing in Machine Learning, Full-Stack Development, and AI Solutions. Explore projects, skills, and professional experience.",
   image = "https://vilayat-ali.github.io/og-image.jpg",
   url = "https://vilayat-ali.github.io",
   type = "website",
-} = Astro.props;
+} = props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
 ---
@@ -31,11 +41,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
       name="keywords"
       content="Syed Vilayat Ali Rizvi, Software Engineer, Machine Learning Engineer, ML Engineer, Full Stack Developer, AI Developer, Portfolio, GitHub"
     />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={canonicalURL.toString()} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={canonicalURL.toString()} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
@@ -43,7 +53,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || url);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:url" content={canonicalURL.toString()} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />

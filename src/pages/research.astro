@@ -1,0 +1,251 @@
+---
+import Layout from "../layouts/WebPageBaseLayout.astro";
+import PublicationCard from "../components/cards/PublicationCard.astro";
+import PatentCard from "../components/cards/PatentCard.astro";
+import BookChapterCard from "../components/cards/BookChapterCard.astro";
+import BookCard from "../components/cards/BookCard.astro";
+import researchData from "../data/pages/Research.json";
+import type { ResearchData } from "../types/research-page.data";
+
+const typedResearchData = researchData as ResearchData;
+
+const featuredPublications = typedResearchData.publications.filter(
+  (p) => p.featured
+);
+const allPublications = typedResearchData.publications;
+---
+
+<Layout
+  title="Research & Publications - Syed Vilayat Ali Rizvi"
+  description="Explore my research in machine learning, distributed systems, and software engineering. Publications, patents, and book contributions."
+>
+  <!-- Neural network background canvas -->
+  <canvas
+    id="neuralCanvas"
+    class="fixed top-0 left-0 w-full h-full opacity-30 pointer-events-none -z-10"
+  ></canvas>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 md:py-20">
+    <!-- Header Section -->
+    <header class="mb-16">
+      <div
+        class="inline-block px-4 py-1.5 bg-green-600/20 border border-green-500/30 rounded-full text-sm text-green-400 font-mono mb-6"
+      >
+        Research & Publications
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-semibold mb-6 leading-tight">
+        Pushing the <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"
+          >boundaries</span
+        > of what's possible
+      </h1>
+
+      <p class="text-xl text-gray-400 max-w-3xl leading-relaxed">
+        My research focuses on making machine learning systems more efficient,
+        scalable, and practical. From academic papers to patents and books,
+        here's a collection of my contributions to the field.
+      </p>
+    </header>
+
+    <!-- Featured Publications -->
+    {
+      featuredPublications.length > 0 && (
+        <section class="mb-20">
+          <h2 class="text-2xl font-semibold mb-8 text-gray-300 flex items-center gap-3">
+            <span class="w-2 h-2 bg-blue-500 rounded-full" />
+            Featured Publications
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {featuredPublications.map((pub) => (
+              <PublicationCard publication={pub} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- All Publications -->
+    <section class="mb-20">
+      <h2
+        class="text-2xl font-semibold mb-8 text-gray-300 flex items-center gap-3"
+      >
+        <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+        All Publications
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allPublications.map((pub) => <PublicationCard publication={pub} />)}
+      </div>
+    </section>
+
+    <!-- Patents -->
+    {
+      typedResearchData.patents.length > 0 && (
+        <section class="mb-20">
+          <h2 class="text-2xl font-semibold mb-8 text-gray-300 flex items-center gap-3">
+            <span class="w-2 h-2 bg-purple-500 rounded-full" />
+            Patents
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {typedResearchData.patents.map((patent) => (
+              <PatentCard patent={patent} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Books -->
+    {
+      typedResearchData.books.length > 0 && (
+        <section class="mb-20">
+          <h2 class="text-2xl font-semibold mb-8 text-gray-300 flex items-center gap-3">
+            <span class="w-2 h-2 bg-yellow-500 rounded-full" />
+            Books
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {typedResearchData.books.map((book) => (
+              <BookCard book={book} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Book Chapters -->
+    {
+      typedResearchData.bookChapters.length > 0 && (
+        <section class="mb-20">
+          <h2 class="text-2xl font-semibold mb-8 text-gray-300 flex items-center gap-3">
+            <span class="w-2 h-2 bg-green-500 rounded-full" />
+            Book Chapters
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {typedResearchData.bookChapters.map((chapter) => (
+              <BookChapterCard chapter={chapter} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- CTA Section -->
+    <section class="mt-20">
+      <div
+        class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-500/30 rounded-lg p-8 md:p-10 text-center"
+      >
+        <h2 class="text-2xl md:text-3xl font-semibold mb-4">
+          Interested in collaboration?
+        </h2>
+        <p class="text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+          I'm always open to research collaborations, reviewing papers, or
+          discussing interesting problems in ML and systems. Let's push the
+          field forward together.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="mailto:your.email@example.com"
+            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 font-medium"
+          >
+            Get in touch
+          </a>
+          <a
+            href="https://scholar.google.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg transition-colors duration-200 font-medium"
+          >
+            Google Scholar
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Neural Network Animation Script -->
+  <script is:inline>
+    const canvas = document.getElementById("neuralCanvas");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("Canvas context not found");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const nodes = [];
+    const nodeCount = 40;
+    const connectionDistance = 150;
+
+    class Node {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = 2;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#3b82f6";
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push(new Node());
+    }
+
+    function drawConnections() {
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < connectionDistance) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = `rgba(59, 130, 246, ${1 - distance / connectionDistance})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      drawConnections();
+
+      nodes.forEach((node) => {
+        node.update();
+        node.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</Layout>

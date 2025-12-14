@@ -1,0 +1,54 @@
+{
+  "publications": [
+    {
+      "id": "pub-1",
+      "title": "A Reactive Approach for High-Accuracy and Data-Driven Customer Behaviour Analysis and Prediction",
+      "authors": ["Priyank Sirohi", "Niraj Singhal", "Syed Vilayat Ali Rizvi", "Pradeep Kumar"],
+      "venue": "International Conference on Artificial-Business Analytics, Quantum and Machine Learning (Com-IT-Con 2023)",
+      "year": 2023,
+      "type": "conference",
+      "abstract": "Understanding the differences of high accuracy and data driven customer behaviour is one of the essential components of success in the e-commerce industry. This research brings forth ideas and concepts to make models more data driven and more accurate through a more reactive approach on model designing, through clever infrastructural designing. This paper proves that the proposed method can assure users to get better results through reactive-data methodologies, demonstrated practically through a customer-behaviour prediction classification problem.",
+      "tags": ["Customer Behaviour", "Data Mining", "AI", "E-commerce", "Classification"],
+      "featured": true
+    },
+    {
+      "id": "pub-2",
+      "title": "A New Cryptographic Algorithm for Safe Route Transversal of Data in Smart Cities using Rubik Cube",
+      "authors": ["Arpit Chhabra", "Niraj Singhal", "Manav Bansal", "Syed Vilayat Ali Rizvi"],
+      "venue": "International Journal of Computer Science & Network Security",
+      "year": 2022,
+      "type": "journal",
+      "abstract": "This paper introduces a new cryptographic algorithm for safe route traversal for data of smart cities which is a contemporary, non-hash, non-linear, 3D encryption implementation designed for having data securely encrypted with a secondary theoretical layer of security. The encryption system works over an encryption key as well as generates a 'state' in a way where characters are directed into the Rubik cube design to manage the data organization, providing enhanced security for smart city infrastructure.",
+      "tags": ["Cryptography", "Smart Cities", "Security", "Encryption", "Network Security"],
+      "featured": true
+    }
+  ],
+  "patents": [
+    {
+      "id": "patent-1",
+      "title": "ML aided Molecularly Imprinted Polymerization for Cancer Detection",
+      "inventors": ["Dr. Nazia Tarranum", "Syed Vilayat Ali Rizvi", "Deepak Kumar", "Praveen Kumar"],
+      "patentNumber": "Pending",
+      "filingDate": "March 2025",
+      "status": "granted",
+      "abstract": "A machine learning-aided system and method for molecularly imprinted polymerization enabling early and accurate cancer detection through advanced polymer-based sensing mechanisms combined with ML pattern recognition.",
+      "tags": ["Machine Learning", "Cancer Detection", "Biomedical", "Polymer Science", "Healthcare"]
+    }
+  ],
+  "bookChapters": [
+    {
+      "id": "chapter-1",
+      "title": "A Reactive Approach for High-Accuracy and Data-Driven Customer Behaviour Analysis and Prediction",
+      "authors": ["Priyank Sirohi", "Niraj Singhal", "Syed Vilayat Ali Rizvi", "Pradeep Kumar"],
+      "bookTitle": "Advances in Artificial-Business Analytics and Quantum Machine Learning: Select Proceedings of the 3rd International Conference, Com-IT-Con 2023, Volume 1",
+      "publisher": "Springer Nature",
+      "year": 2024,
+      "chapter": "Volume 1191",
+      "pages": "55-66",
+      "abstract": "Understanding the differences of high accuracy and data driven customer behaviour is one of the essential components of success in the e-commerce industry because customer behaviour varies from person to person depending on their segmentations. This research brings forth ideas and concepts to make models more data driven and more accurate through a more reactive approach on model designing, through clever infrastructural designing. This paper proves it practically by taking a simple classification problem, in contrast to customer-behaviour prediction.",
+      "tags": ["Customer Analytics", "AI", "Data Mining", "Business Intelligence"],
+      "isbn": "978-981-97-6588-1"
+    }
+  ],
+  "books": []
+}

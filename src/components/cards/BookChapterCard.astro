@@ -1,0 +1,63 @@
+---
+import type { BookChapter } from "../../types/research-page.data";
+
+interface Props {
+  chapter: BookChapter;
+}
+
+const { chapter } = Astro.props;
+---
+
+<div
+  class="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-green-500 transition-colors duration-300"
+>
+  <div class="text-sm text-gray-500 mb-2">
+    {chapter.chapter} • {chapter.year}
+  </div>
+
+  <h3 class="text-lg font-semibold mb-2 text-white leading-tight">
+    {chapter.title}
+  </h3>
+
+  <p class="text-sm text-gray-400 mb-2">
+    {chapter.authors.join(", ")}
+  </p>
+
+  <p class="text-sm text-green-400 mb-1 font-medium">
+    {chapter.bookTitle}
+  </p>
+
+  <p class="text-sm text-gray-500 mb-3">
+    {chapter.publisher} • {chapter.pages && `pp. ${chapter.pages}`}
+    {chapter.isbn && ` • ISBN: ${chapter.isbn}`}
+  </p>
+
+  <p class="text-sm text-gray-400 leading-relaxed mb-4">
+    {chapter.abstract}
+  </p>
+
+  {
+    chapter.tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {chapter.tags.map((tag) => (
+          <span class="px-2.5 py-1 bg-gray-800 border border-gray-700 rounded-full text-xs text-gray-300">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    chapter.url && (
+      <a
+        href={chapter.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-gray-400 hover:text-white transition-colors"
+      >
+        📖 Read Chapter
+      </a>
+    )
+  }
+</div>

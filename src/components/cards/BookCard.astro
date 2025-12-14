@@ -1,0 +1,90 @@
+---
+import type { Book } from "../../types/research-page.data";
+
+interface Props {
+  book: Book;
+}
+
+const { book } = Astro.props;
+---
+
+<div
+  class="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-yellow-500 transition-colors duration-300"
+>
+  {
+    book.coverUrl && (
+      <div class="aspect-[2/3] bg-gray-800 overflow-hidden max-w-[200px] mx-auto mt-6">
+        <img
+          src={book.coverUrl}
+          alt={book.title}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    )
+  }
+
+  <div class="p-6">
+    <div class="text-sm text-gray-500 mb-2">
+      {book.year} • {book.pages} pages
+    </div>
+
+    <h3 class="text-xl font-semibold mb-2 text-white leading-tight">
+      {book.title}
+    </h3>
+
+    <p class="text-sm text-gray-400 mb-2">
+      by {book.authors.join(", ")}
+    </p>
+
+    <p class="text-sm text-yellow-400 mb-3 font-medium">
+      {book.publisher}
+    </p>
+
+    <p class="text-sm text-gray-500 mb-3 font-mono">
+      ISBN: {book.isbn}
+    </p>
+
+    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+      {book.description}
+    </p>
+
+    {
+      book.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-4">
+          {book.tags.map((tag) => (
+            <span class="px-2.5 py-1 bg-gray-800 border border-gray-700 rounded-full text-xs text-gray-300">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="flex flex-wrap gap-3">
+      {
+        book.amazonUrl && (
+          <a
+            href={book.amazonUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-gray-400 hover:text-white transition-colors"
+          >
+            🛒 Amazon
+          </a>
+        )
+      }
+      {
+        book.publisherUrl && (
+          <a
+            href={book.publisherUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-gray-400 hover:text-white transition-colors"
+          >
+            📚 Publisher
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>

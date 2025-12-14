@@ -4,7 +4,7 @@
   <div class="max-w-6xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo / Name -->
-      <a href="#" class="flex items-center space-x-3 group">
+      <a href="/" class="flex items-center space-x-3 group">
         <div
           class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform duration-200"
         >
@@ -18,56 +18,26 @@
         <a
           href="/projects"
           class="text-gray-300 hover:text-white transition-colors duration-200"
-          >Work</a
+          >Projects</a
         >
 
         <!-- Dropdown for Research -->
         <div class="relative dropdown">
-          <button
+          <a
+            href="/research"
             class="text-gray-300 hover:text-white transition-colors duration-200 flex items-center space-x-1"
           >
-            <span>Research</span>
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div
-            class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-lg shadow-xl"
-          >
-            <a
-              href="#publications"
-              class="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200 rounded-t-lg"
-              >Publications</a
-            >
-            <a
-              href="#projects"
-              class="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200"
-              >Projects</a
-            >
-            <a
-              href="#experiments"
-              class="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors duration-200 rounded-b-lg"
-              >Experiments</a
-            >
-          </div>
+            Research
+          </a>
         </div>
 
         <a
-          href="#blog"
+          href="/blogs"
           class="text-gray-300 hover:text-white transition-colors duration-200"
-          >Blog</a
+          >Blogs</a
         >
         <a
-          href="#about"
+          href="/about"
           class="text-gray-300 hover:text-white transition-colors duration-200"
           >About</a
         >
@@ -124,61 +94,29 @@
     <div id="mobileMenu" class="mobile-menu md:hidden">
       <div class="py-4 space-y-1 border-t border-gray-800 mt-4">
         <a
-          href="#work"
+          href="/projects"
           class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
-          >Work</a
+          >projects</a
         >
 
         <!-- Mobile Research Dropdown -->
         <div>
-          <button
+          <a
             id="mobileResearchBtn"
             class="w-full flex items-center justify-between px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
+            href="/research"
           >
-            <span>Research</span>
-            <svg
-              id="researchChevron"
-              class="w-4 h-4 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div
-            id="mobileResearchDropdown"
-            class="max-h-0 overflow-hidden transition-all duration-200"
-          >
-            <a
-              href="#publications"
-              class="block px-8 py-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
-              >Publications</a
-            >
-            <a
-              href="#projects"
-              class="block px-8 py-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
-              >Projects</a
-            >
-            <a
-              href="#experiments"
-              class="block px-8 py-2 text-sm text-gray-400 hover:text-white transition-colors duration-200"
-              >Experiments</a
-            >
-          </div>
+            Research
+          </a>
         </div>
 
         <a
-          href="#blog"
+          href="/blogs"
           class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
-          >Blog</a
+          >Blogs</a
         >
         <a
-          href="#about"
+          href="/about"
           class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900 rounded-lg transition-colors duration-200"
           >About</a
         >

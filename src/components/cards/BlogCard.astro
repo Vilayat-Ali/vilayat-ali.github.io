@@ -1,0 +1,96 @@
+---
+interface Props {
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime?: string;
+  tags?: string[];
+  slug: string;
+  featured?: boolean;
+  class?: string;
+}
+
+const {
+  title,
+  excerpt,
+  date,
+  readTime,
+  tags = [],
+  slug,
+  featured = false,
+  class: className = "",
+} = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+
+<article
+  class={`group bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-purple-500 transition-all duration-300 ${className}`}
+>
+  {
+    featured && (
+      <div class="inline-block px-3 py-1 bg-purple-600 text-white text-xs font-semibold rounded-full mb-4">
+        Featured Post
+      </div>
+    )
+  }
+
+  <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+    <time datetime={date}>{formattedDate}</time>
+    {
+      readTime && (
+        <>
+          <span>•</span>
+          <span>{readTime} read</span>
+        </>
+      )
+    }
+  </div>
+
+  <a href={`/blog/${slug}`} class="block mb-3">
+    <h3
+      class="text-xl font-semibold mb-2 group-hover:text-purple-400 transition-colors duration-200"
+    >
+      {title}
+    </h3>
+  </a>
+
+  <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+    {excerpt}
+  </p>
+
+  {
+    tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {tags.map((tag) => (
+          <span class="px-3 py-1 bg-gray-800 border border-gray-700 rounded-full text-xs text-gray-300">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )
+  }
+
+  <a
+    href={`/blog/${slug}`}
+    class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium"
+  >
+    Read more
+    <svg
+      class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+    </svg>
+  </a>
+</article>
